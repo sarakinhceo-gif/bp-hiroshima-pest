@@ -1,8 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <defs><linearGradient id="bghiro" x1="0" y1="0" x2="1" y2="1">
-    <stop offset="0%" stop-color="#bf360c"/><stop offset="100%" stop-color="#e65100"/>
-  </linearGradient></defs>
-  <rect width="32" height="32" rx="6" fill="url(#bghiro)"/>
-  <polygon points="4,5 28,16 4,27 14,16" fill="rgba(191,54,12,0.9)" stroke="rgba(230,81,0,0.6)" stroke-width="2"/>
-  <text x="16" y="21" text-anchor="middle" fill="#fff" font-size="8" font-weight="700" font-family="system-ui">HI</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img">
+  <title>망원 유흥 추천정보</title>
+  <rect width="64" height="64" rx="14" fill="hsl(148 72% 32%)"/>
+  <path d="M64 0v26L38 0Z" fill="hsl(280 68% 69%)" opacity="0.16"/>
+  <g transform="rotate(270 32 32)"><path d="M32 13 50 23v18L32 51 14 41V23Z" fill="none" stroke="hsl(148 24% 96%)" stroke-width="6" stroke-linejoin="round"/><circle cx="32" cy="32" r="6" fill="hsl(280 68% 69%)"/></g>
 </svg>
