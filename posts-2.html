@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (2/2) · hiroshima-pest</title>
+  <meta name="description" content="hiroshima-pest에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://mangwon-song-room.hardcoreroom.com/posts-2.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+ /* CSS 핵심: 디자인 시스템 유지 */
+ :root {
+ --bg-color: #0a0a0a;
+ --text-color: #f5f5f7;
+ --accent-color: #d4af37;
+ --secondary-text: #86868b;
+ --card-bg: #1c1c1e;
+ --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+ }
+
+ body {
+ margin: 0;
+ padding: 0;
+ background-color: var(--bg-color);
+ color: var(--text-color);
+ font-family: var(--font-main);
+ line-height: 1.6;
+ -webkit-font-smoothing: antialiased;
+ }
+
+ /* Navigation */
+ header {
+ background-color: rgba(10, 10, 10, 0.95);
+ border-bottom: 1px solid #333;
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ padding: 1rem 0;
+ }
+
+ .container {
+ max-width: 1200px;
+ margin: 0 auto;
+ padding: 0 20px;
+ }
+
+ nav {
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ }
+
+ .nav-logo {
+ font-size: 1.5rem;
+ font-weight: 700;
+ color: var(--accent-color);
+ text-decoration: none;
+ letter-spacing: -0.5px;
+ }
+
+ .nav-links {
+ display: flex;
+ gap: 2rem;
+ }
+
+ .nav-links a {
+ color: var(--text-color);
+ text-decoration: none;
+ font-size: 0.95rem;
+ transition: color 0.3s ease;
+ }
+
+ .nav-links a:hover {
+ color: var(--accent-color);
+ }
+
+ .nav-toggle {
+ display: none;
+ background: none;
+ border: none;
+ color: var(--text-color);
+ font-size: 1.5rem;
+ cursor: pointer;
+ }
+
+ /* Hero Section */
+ .hero {
+ padding: 6rem 0;
+ text-align: center;
+ border-bottom: 1px solid #333;
+ }
+
+ .hero h1 {
+ font-size: 3.5rem;
+ font-weight: 700;
+ margin-bottom: 1.5rem;
+ background: linear-gradient(180deg, #fff 0%, #b0b0b0 100%);
+ -webkit-background-clip: text;
+ -webkit-text-fill-color: transparent;
+ letter-spacing: -1.5px;
+ }
+
+ .hero p {
+ font-size: 1.25rem;
+ color: var(--secondary-text);
+ max-width: 700px;
+ margin: 0 auto;
+ font-weight: 300;
+ }
+
+ /* Content Section */
+ .content-section {
+ padding: 4rem 0;
+ }
+
+ .section-title {
+ font-size: 2rem;
+ font-weight: 600;
+ margin-bottom: 2rem;
+ border-left: 4px solid var(--accent-color);
+ padding-left: 1rem;
+ }
+
+ .info-grid {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+ gap: 2rem;
+ margin-bottom: 4rem;
+ }
+
+ .info-card {
+ background-color: var(--card-bg);
+ padding: 2rem;
+ border-radius: 12px;
+ border: 1px solid #333;
+ transition: transform 0.3s ease, border-color 0.3s ease;
+ }
+
+ .info-card:hover {
+ transform: translateY(-5px);
+ border-color: var(--accent-color);
+ }
+
+ .info-card h3 {
+ margin-top: 0;
+ color: var(--accent-color);
+ font-size: 1.25rem;
+ }
+
+ .info-card p {
+ color: var(--secondary-text);
+ font-size: 0.95rem;
+ }
+
+ /* Review Cards (Reused Pattern) */
+ .review-cards {
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+ gap: 2rem;
+ margin-top: 2rem;
+ }
+
+ .review-card {
+ background: linear-gradient(145deg, #1c1c1e, #252528);
+ padding: 2.5rem;
+ border-radius: 16px;
+ box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+ }
+
+ .review-card h2 {
+ font-size: 1.5rem;
+ margin-top: 0;
+ margin-bottom: 1rem;
+ color: #fff;
+ }
+
+ .review-card p {
+ color: var(--secondary-text);
+ line-height: 1.8;
+ margin-bottom: 1.5rem;
+ }
+
+ .btn-link {
+ display: inline-block;
+ padding: 10px 20px;
+ background-color: transparent;
+ border: 1px solid var(--accent-color);
+ color: var(--accent-color);
+ text-decoration: none;
+ border-radius: 6px;
+ font-size: 0.9rem;
+ transition: all 0.3s ease;
+ }
+
+ .btn-link:hover {
+ background-color: var(--accent-color);
+ color: #000;
+ }
+
+ /* Footer */
+ .footer {
+ background-color: #000;
+ padding: 4rem 0 2rem;
+ margin-top: 4rem;
+ border-top: 1px solid #333;
+ text-align: center;
+ }
+
+ .footer p {
+ color: var(--secondary-text);
+ font-size: 0.9rem;
+ margin: 0.5rem 0;
+ }
+
+ .tel-link {
+ color: var(--accent-color);
+ text-decoration: none;
+ font-weight: 600;
+ font-size: 1.1rem;
+ display: block;
+ margin-top: 1rem;
+ }
+
+ /* Responsive */
+ @media (max-width: 768px) {
+ .hero h1 {
+ font-size: 2.5rem;
+ }
+ 
+ .nav-links {
+ display: none;
+ flex-direction: column;
+ position: absolute;
+ top: 100%;
+ left: 0;
+ width: 100%;
+ background-color: #0a0a0a;
+ padding: 1rem 0;
+ border-bottom: 1px solid #333;
+ }
+
+ .nav-links.active {
+ display: flex;
+ }
+
+ .nav-links a {
+ padding: 1rem 2rem;
+ border-bottom: 1px solid #222;
+ }
+
+ .nav-toggle {
+ display: block;
+ }
+
+ .review-cards {
+ grid-template-columns: 1fr;
+ }
+ }
+ </style>
+  <meta property="og:title" content="글 목록 (2/2) · hiroshima-pest">
+  <meta property="og:description" content="hiroshima-pest에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://mangwon-song-room.hardcoreroom.com/posts-2.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+ <div class="container">
+ <nav>
+ <a href="#" class="nav-logo">HIROSHIMA PEST</a>
+ <button class="nav-toggle" aria-label="메뉴 toggle">☰</button>
+ <div class="nav-links">
+ <a href="#">홈</a>
+ <a href="#">지역 가이드</a>
+ <a href="#">추천 정보</a>
+ <a href="#">문의하기</a>
+ </div>
+ </nav>
+ </div>
+ </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 31개 · 2/2 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0221.html">망원 유흥 추천정보 확인 후 공덕 셔츠룸 추천정보 선택 가이드</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 찾아보던 방문객들이 최근 공덕 인근으로 발걸음을 옮기는 경우가 많습니다. 특히 셔츠룸 문화가 자리 잡으면서 체계적인 정보를 습득하는 것이 우선입니다. 실패 없는 방문을 위해서는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0222.html">망원 유흥 추천정보 비교 분석으로 보는 연남 유흥 추천정보 기준</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 비교하다 보면 자연스럽게 연남 인근의 시설로 시야가 넓어지곤 합니다. 하지만 동일한 지역 내에서도 업소마다 가격 체계가 상이하여 혼란을 겪는 분들이 많습니다. 두 가지 선택지를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0223.html">망원 유흥 추천정보 실패 사례와 마곡 가라오케 추천정보 예약법</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 조사하며 만족스러운 곳을 찾으려 하지만, 많은 이들이 예약 단계에서부터 실패를 경험하곤 합니다. 특히 마곡 지역의 가라오케를 예약할 때 소통의 부재가 큰 원인이 됩니다. 어떤 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0224.html">망원 유흥 추천정보 핵심 체크리스트 및 마곡 유흥 추천정보</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 통해 지역 정보를 파악한 분들이라면 이제 마곡의 접근성과 위치를 꼼꼼히 체크해 볼 차례입니다. 장소의 선택은 즐거움의 절반 이상을 결정짓는 핵심 요소입니다. 방문 전 스스로 확</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0225.html">망원 유흥 추천정보 확인 시 합정 노래방 추천정보 비교하기</a>
+        <p class="post-item__summary">친구들과 모임을 갖다 보면 자연스럽게 2차 장소를 고민하게 됩니다. 특히 망원 유흥 추천정보 키워드를 통해 여러 지역을 검색하다 보면 합정 인근의 노래방을 가장 먼저 떠올리게 됩니다. 처음 방문하는</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0226.html">망원 유흥 추천정보 기반의 연남 클럽 추천정보 선택 기준</a>
+        <p class="post-item__summary">일반적으로 클럽이라고 하면 무조건 늦은 밤에만 가야 한다는 오해를 하는 경우가 많습니다. 망원 유흥 추천정보 등을 보며 연남 지역을 살피는 분들도 이 부분에서 고민이 깊어집니다. 사실 시간대만 잘 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0227.html">망원 유흥 추천정보 활용한 합정 셔츠룸 추천정보 조건 분석</a>
+        <p class="post-item__summary">좋은 자리를 정하기 위해서는 인원 구성과 목적이라는 두 가지 충족 조건이 중요합니다. 망원 유흥 추천정보를 통해 지역 전반을 파악한 뒤 세부 항목으로 들어가는 것이 순서입니다. 특히 합정 지역의 셔</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0228.html">망원 유흥 추천정보 확인 시 공덕 가라오케 추천정보 비교법</a>
+        <p class="post-item__summary">혹시 오늘 저녁, 직장 동료나 친구들과 기억에 남을 시간을 보낼 계획을 세우고 계신가요? 망원 유흥 추천정보를 살피다 보면 인근 공덕의 다양한 업체를 마주하게 됩니다. 선택지가 많을수록 나에게 딱 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0229.html">망원 유흥 추천정보 확인하며 살펴보는 상수 마사지 추천정보</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 검색하는 분들이라면 인근 지역의 피로 해소 공간에도 관심이 많을 것입니다. 특히 상수 지역은 특유의 차분한 분위기 속에서 서비스를 받을 수 있는 곳이 많아 많은 이들이 방문합니</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0230.html">망원 유흥 추천정보 참고하여 비교하는 망원 노래방 추천정보</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 찾다 보면 자연스럽게 동네 노래방에 대한 궁금증이 생기게 됩니다. 인근에는 화려한 시설을 갖춘 대형 업소와 실속을 중시하는 소규모 노래방이 공존하고 있습니다. 두 가지 선택지를</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/gemini-coverage-20260721-0231.html">망원 유흥 추천정보 확인하며 알아보는 홍대 노래방 추천정보</a>
+        <p class="post-item__summary">망원 유흥 추천정보를 탐색하는 이들은 홍대의 활기찬 분위기 속에서 즐길 수 있는 공간도 함께 찾아보곤 합니다. 노래방을 예약할 때 많은 이들이 사전 조사 부족으로 인해 난관을 겪곤 합니다. 이용하기</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <span class="pager__current">2</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
